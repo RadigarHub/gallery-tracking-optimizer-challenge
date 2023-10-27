@@ -1,0 +1,4 @@
+CreateImages:
+    path: /
+    controller: App\Images\Infrastructure\Api\Controller\CreateImagesPostController
+    methods: [POST]
