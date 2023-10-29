@@ -19,6 +19,7 @@ deps: build
 	docker compose run --rm skeleton-php-symfony-fpm sh -c "\
 			composer install --prefer-dist --no-progress --no-scripts --no-interaction --optimize-autoloader 	&& \
 			composer dump-autoload --classmap-authoritative 													;"
+
 bash:
 	docker compose run --rm skeleton-php-symfony-fpm sh
 
@@ -30,3 +31,6 @@ down:
 
 .test/build:
 	docker compose -f docker-compose.test.yml build
+
+db-schema:
+	docker compose run --rm skeleton-php-symfony-fpm sh -c "bin/console doctrine:schema:create"
