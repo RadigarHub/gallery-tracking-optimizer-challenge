@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Images\Domain\ValueObject;
 
-class ImageCreatedAt extends PriorCurrentDateTime
+class EventCreatedAt extends PriorCurrentDateTime
 {
     protected function message(): string
     {

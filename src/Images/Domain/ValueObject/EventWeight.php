@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace App\Images\Domain\ValueObject;
 
-class ImageCreatedAt extends PriorCurrentDateTime
+class EventWeight extends NonNegativeFloat
 {
     protected function message(): string
     {
-        return 'CreatedAt datetime must be prior to the current datetime';
+        return 'Weight cannot be smaller than 0';
     }
 }

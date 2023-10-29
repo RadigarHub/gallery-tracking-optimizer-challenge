@@ -27,7 +27,7 @@ class ImageCreatedAtTest extends TestCase
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage(
             \sprintf(
-                'The creation datetime [%s] cannot be later than the current datetime',
+                '[%s] CreatedAt datetime must be prior to the current datetime',
                 $invalidDateTime->format('Y-m-d\TH:i:s\Z')
             )
         );

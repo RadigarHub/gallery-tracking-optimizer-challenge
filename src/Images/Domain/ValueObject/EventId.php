@@ -4,6 +4,6 @@ declare(strict_types=1);
 
 namespace App\Images\Domain\ValueObject;
 
-class ImageId extends Uuid
+class EventId extends Uuid
 {
 }
