@@ -60,7 +60,7 @@ class CreateImagesTest extends TestCase
         $imageCollection = $this->createImageCollection();
         $this->imageRepository
             ->expects($this->once())
-            ->method('saveMultiple')
+            ->method('insertMultiple')
             ->with($imageCollection)
             ->willReturn(null);
 
@@ -84,7 +84,7 @@ class CreateImagesTest extends TestCase
         $imageCollection = $this->createImageCollection();
         $this->imageRepository
             ->expects($this->once())
-            ->method('saveMultiple')
+            ->method('insertMultiple')
             ->with($imageCollection)
             ->willReturn(null);
 
@@ -104,7 +104,7 @@ class CreateImagesTest extends TestCase
 
         $this->imageRepository
             ->expects($this->once())
-            ->method('saveMultiple')
+            ->method('insertMultiple')
             ->with(ImageCollection::init());
 
         $this->service->handle(new CreateImagesDTO([self::IMAGES[0]]));

@@ -26,7 +26,7 @@ class CreateImages
     public function handle(CreateImagesDTO $dto): void
     {
         $this->addImagesToCollection(array_unique($dto->getImages()));
-        $this->repository->saveMultiple($this->imageCollection);
+        $this->repository->insertMultiple($this->imageCollection);
     }
 
     private function addImagesToCollection(array $images): void
