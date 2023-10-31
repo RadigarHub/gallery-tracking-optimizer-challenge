@@ -61,4 +61,20 @@ class DoctrineImageRepository extends DoctrineRepository implements ImageReposit
 
         return $doctrineImage->toDomain();
     }
+
+    public function findAll(): ImageCollection
+    {
+        $queryBuilder = $this->repository()->createQueryBuilder('i');
+        $queryBuilder
+            ->addOrderBy('i.weight', 'DESC')
+            ->addOrderBy('i.createdAt', 'DESC');
+        $result = $queryBuilder->getQuery()->getResult();
+        if (empty($result)) {
+            throw new ResourceNotFoundException('They are not registered');
+        }
+
+        return new ImageCollection(\array_map(function (DoctrineImage $doctrineImage): Image {
+            return $doctrineImage->toDomain();
+        }, $result));
+    }
 }
