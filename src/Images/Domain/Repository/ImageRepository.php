@@ -12,7 +12,7 @@ interface ImageRepository
 {
     public function insert(Image $image): void;
     public function update(Image $image): void;
-    public function insertMultiple(ImageCollection $imageCollection);
+    public function insertMultiple(ImageCollection $imageCollection): void;
     public function exist(ImageId $ImageId): bool;
     public function findOneByIdOrFail(ImageId $imageId): Image;
 }

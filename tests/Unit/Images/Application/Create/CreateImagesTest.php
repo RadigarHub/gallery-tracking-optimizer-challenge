@@ -61,8 +61,7 @@ class CreateImagesTest extends TestCase
         $this->imageRepository
             ->expects($this->once())
             ->method('insertMultiple')
-            ->with($imageCollection)
-            ->willReturn(null);
+            ->with($imageCollection);
 
         $this->service->handle(new CreateImagesDTO(self::IMAGES));
     }
@@ -85,8 +84,7 @@ class CreateImagesTest extends TestCase
         $this->imageRepository
             ->expects($this->once())
             ->method('insertMultiple')
-            ->with($imageCollection)
-            ->willReturn(null);
+            ->with($imageCollection);
 
         $createImagesDTO = new CreateImagesDTO(array_merge(self::IMAGES, [self::IMAGES[0]]));
         $this->service->handle($createImagesDTO);
