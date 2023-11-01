@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                                      https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+
+    <entity name="App\Images\Infrastructure\Persistence\Doctrine\Entity\DoctrineImage" table="image">
+        <id name="id" type="guid"/>
+
+        <field name="name" type="string" length="50"/>
+        <field name="url" type="string"/>
+        <field name="createdAt" type="datetime_immutable" column="created_at"/>
+        <one-to-many field="events" target-entity="DoctrineEvent" mapped-by="image">
+            <cascade>
+                <cascade-persist/>
+            </cascade>
+            <order-by>
+                <order-by-field name="createdAt" direction="DESC"/>
+            </order-by>
+        </one-to-many>
+        <field name="views" type="integer"/>
+        <field name="clicks" type="integer"/>
+        <field name="weight" type="float"/>
+        <indexes>
+            <index name="weight_createdat_idx" columns="weight,created_at"/>
+        </indexes>
+    </entity>
+
+</doctrine-mapping>

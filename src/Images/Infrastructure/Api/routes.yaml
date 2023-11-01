@@ -1,0 +1,14 @@
+CreateImages:
+    path: /
+    controller: App\Images\Infrastructure\Api\Controller\CreateImagesPostController
+    methods: [POST]
+
+CreateEvent:
+    path: /{imageId}/events
+    controller: App\Images\Infrastructure\Api\Controller\CreateEventPostController
+    methods: [POST]
+
+FindImages:
+    path: /
+    controller: App\Images\Infrastructure\Api\Controller\FindImagesGetController
+    methods: [GET]
